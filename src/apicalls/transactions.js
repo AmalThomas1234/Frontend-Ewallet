@@ -1,9 +1,10 @@
 const { axiosInstance } = require("./index");
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const VerifyAccount = async (payload) => {
   try {
     const { data } = await axiosInstance.post(
-      "/api/transactions/verify-account",
+      `${API_URL}/api/transactions/verify-account`,
       payload
     );
     return data;
@@ -15,7 +16,7 @@ export const VerifyAccount = async (payload) => {
 export const TransferFunds = async (payload) => {
   try {
     const { data } = await axiosInstance.post(
-      "/api/transactions/transfer-funds",
+      `${API_URL}/api/transactions/transfer-funds`,
       payload
     );
     return data;
@@ -27,7 +28,7 @@ export const TransferFunds = async (payload) => {
 export const GetTransactionsOfUser = async () => {
   try {
     const { data } = await axiosInstance.post(
-      "/api/transactions/get-all-transactions-by-user"
+      `${API_URL}/api/transactions/get-all-transactions-by-user`
     );
     return data;
   } catch (error) {
@@ -38,7 +39,7 @@ export const GetTransactionsOfUser = async () => {
 export const DepositFunds = async (payload) => {
   try {
     const { data } = await axiosInstance.post(
-      "/api/transactions/deposit-funds",
+      `${API_URL}/api/transactions/deposit-funds`,
       payload
     );
     return data;

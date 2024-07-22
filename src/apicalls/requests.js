@@ -1,9 +1,11 @@
 const { axiosInstance } = require("./index");
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 export const GetAllRequestsByUser = async () => {
   try {
     const { data } = await axiosInstance.post(
-      "/api/requests/get-all-requests-by-user"
+      `${API_URL}/api/requests/get-all-requests-by-user`
     );
     return data;
   } catch (error) {
@@ -14,7 +16,7 @@ export const GetAllRequestsByUser = async () => {
 export const SendRequest = async (request) => {
   try {
     const { data } = await axiosInstance.post(
-      "/api/requests/send-request",
+      `${API_URL}/api/requests/send-request`,
       request
     );
     return data;
@@ -26,7 +28,7 @@ export const SendRequest = async (request) => {
 export const UpdateRequestStatus = async (request) => {
   try {
     const { data } = await axiosInstance.post(
-      "/api/requests/update-request-status",
+      `${API_URL}/api/requests/update-request-status`,
       request
     );
     return data;
